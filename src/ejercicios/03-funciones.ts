@@ -1,43 +1,36 @@
-/*
-    ===== Código de TypeScript =====
-*/
-
-
-function sumar(a: number, b:number): number {
-    return a + b;
+function sumar(a: number, b: number): number{
+  return a + b
 }
 
-const sumarFlecha = (a:number, b:number):number => {
-    return a + b;
+const sumarFlcha = (a: number, b: number): number => a + b;
+
+function multiplicar( numA: number, numB?: number, base: number = 2): number {
+ return numA * base;
 }
 
-function multiplicar( numero: number, otroNumero?: number, base:number = 2 ): number {
-    return numero * base;
+/*  const resultado = multiplicar(34, 4, 10);
+
+console.log(resultado); */
+
+interface personajeLOR{
+  nombre: string;
+  pv: number;
+  mostrarHp: () => void;
 }
 
-
-interface PersonajeLOR {
-    nombre: string;
-    pv: number;
-    mostrarHp: () => void;
+function curarPersonaje(personaje: personajeLOR, curarX: number): void {
+ personaje.pv += curarX;
+ console.log(personaje);
 }
 
-
-function curar( personaje: PersonajeLOR, curarX:number ): void {
-
-    personaje.pv += curarX;
+const nuevoPersonaje: personajeLOR = {
+ nombre: 'Legolas',
+ pv: 50,
+ mostrarHp() {
+   console.log(`PUntos de vida: ${this.pv}`);
+ }
 }
 
-const nuevoPersonaje: PersonajeLOR = {
-    nombre: 'Strider',
-    pv: 50,
-    mostrarHp() {
-        console.log( 'Puntos de vida:', this.pv );
-    }
-}
-
-curar( nuevoPersonaje, 20 );
+curarPersonaje(nuevoPersonaje, 45);
 
 nuevoPersonaje.mostrarHp();
-
-
